@@ -49,6 +49,9 @@ public class PostServiceTest {
 
 		//then
 		Post post = postRepository.findById(postId).orElseThrow(IllegalArgumentException::new);
+		
 		assertThat(post.getTitle()).isEqualTo(savePostParams.getTitle());
+		assertThat(post.getContent()).isEqualTo(savePostParams.getContent());
+		assertThat(post.getWriter()).isEqualTo(userId);
 	}
 }
